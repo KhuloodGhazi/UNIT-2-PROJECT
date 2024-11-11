@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Contact{%endblock %}
+
+{% block content %}
+
+<section class=".section-2">
+    <div class="contact-container">
+        <!-- Contact Form Section -->
+         <div class="contact-form">
+            <h1>Contact us</h1>
+            <p class="subheading">Subheading for description or instructions</p>
+            
+            <form action="{% url 'main:contact_view'%}" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First name</label>
+                        <input type="text" id="first-name" name="first_name" placeholder="Jane" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="" name="email" placeholder="email@gmail.com" required />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your message</label>
+                    <textarea id="message" name="message" placeholder="Enter your Question or Message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button-contact">Send</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

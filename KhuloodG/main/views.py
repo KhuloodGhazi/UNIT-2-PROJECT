@@ -7,3 +7,17 @@ from django.http import HttpRequest, HttpResponse
 def main_view(request:HttpRequest):
 
     return render(request, 'main/home.html')
+
+
+
+
+def contact_view(request:HttpRequest):
+
+    return render(request, 'main/contact.html') #All the work is here 
+
+
+
+
+def about_view(request:HttpRequest):
+
+    return render(request, 'main/about.html')
