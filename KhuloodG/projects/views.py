@@ -9,3 +9,10 @@ def projects_view(request:HttpRequest):
     return render(request, 'projects/all_projects.html')
 
 
+
+
+def detail_view(request:HttpRequest):
+
+    return render(request, 'projects/project_detail.html')
+
+
