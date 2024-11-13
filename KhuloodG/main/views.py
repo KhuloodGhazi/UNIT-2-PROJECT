@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
+from .models import Contact
+
 
 
 # Create your views here.
@@ -13,11 +15,14 @@ def main_view(request:HttpRequest):
 
 def contact_view(request:HttpRequest):
 
-    return render(request, 'main/contact.html') #All the work is here 
+    if request.method == "POST":
+        new_message = Contact(
+            name=request.POST["name"],
+            email=request.POST["Email"],
+            message=request.POST["message"]
+        )
 
+        new_message.save()
+        return redirect("main:main_view") #Need to create a new page & a message page for dashborad
 
-
-
-def about_view(request:HttpRequest):
-
-    return render(request, 'main/about.html')
+    return render(request, 'main/contact.html') 

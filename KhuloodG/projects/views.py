@@ -16,3 +16,11 @@ def detail_view(request:HttpRequest):
     return render(request, 'projects/project_detail.html')
 
 
+
+
+def new_project_view(request:HttpRequest):
+
+    return render(request, 'projects/new_project.html')
+
+
+

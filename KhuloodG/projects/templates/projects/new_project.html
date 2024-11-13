@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}New Project{%endblock%}
+
+{% block content %}
+
+
+
+<div class="add-project-page">
+    <h1>Add New Project</h1>
+    <hr class="header-line-3">
+    
+    <div class="add-project-container">
+        
+        <form class="add-project-form" action="{% url 'projects:new_project_view'%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="project_name">Project Name</label>
+                <input type="text" id="project_name" name="project_name" placeholder="Enter project Name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="project_brief">Project Brief</label>
+                <input type="text" id="project_brief" name="project_brief" placeholder="Enter a Brife about Your Project">
+            </div>
+            
+            <div class="form-group">
+                <label for="project_model">Project URL</label>
+                <input type="text" id="project_model" name="project_model" placeholder="Enter You 3D Model URL" required>
+            </div>
+            
+            <!-- Category -->
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option value="Mobile App">Mobile App</option>
+                    <option value="Website">Website</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button">Add Plant</button>
+        </form>
+    </div>
+</div>
+  
+{% endblock %}

@@ -562,6 +562,107 @@ html, body {
   text-align: center;
 }
 
+/* Add project */
+
+.add-project-page{
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #1c1c1c;
+  margin: 50px 30px ;
+}
+
+.add-project-page h1 {
+  padding-left: 310px;
+  color: #fff;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 10px;
+
+}
+
+.header-line-3 {
+  border: none;
+  border-top: 2px solid #00edff;
+  width: 800px;
+  margin: 10px auto;
+  margin-bottom: 40px;
+}
+
+.add-project-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 40px;
+  border: 1px dashed #00edff;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.add-project-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.add-project-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.add-project-form label {
+  font-size: 1.2rem;
+  color: #fff;
+  padding-left: 5px;
+  margin-bottom: 10px;
+}
+
+.add-project-form input[type="text"],
+.add-project-form select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.395);
+  border-radius: 8px;
+  background-color: #333333;
+  color: #ffffff;
+  width: 100%;
+}
+
+.add-project-form input[type="text"]::placeholder,
+.add-project-form select::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+
+}
+
+.add-project-form input[type="file"] {
+  padding: 10px;
+  width: 760px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  background-color: #00edff;
+  color: #1c1c1c;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #00a0cc;
+  color: white;
+}
+
 
 
 /* Responsive Design */
