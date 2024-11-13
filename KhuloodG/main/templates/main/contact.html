@@ -5,6 +5,16 @@
 {% block title %}Contact{%endblock %}
 
 {% block content %}
+{% if messages %}
+  <div class="notification-container">
+    {% for message in messages %}
+      <div class="notification {{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <div class="contact-container">
     <div class="text-container">
         <h1>Contact Me</h1>
@@ -35,5 +45,15 @@
         </form>
     </div>
 </div>
+
+<script>
+    setTimeout(function() {
+      const notification = document.querySelector('.notification');
+      if (notification) {
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 500); 
+      }
+    }, 3000); 
+  </script>
 
 {% endblock %}

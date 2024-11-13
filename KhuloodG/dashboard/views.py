@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
+from main.models import Contact
+
 
 # Create your views here.
 
@@ -10,7 +12,9 @@ def admin_view(request:HttpRequest):
 
 
 
-def message_view(request:HttpRequest):
+def messages_view(request):
+    
+    messages = Contact.objects.all()
 
-    return render(request, 'dashboard/message.html')
+    return render(request, 'dashboard/messages.html', {'messages': messages})
 
