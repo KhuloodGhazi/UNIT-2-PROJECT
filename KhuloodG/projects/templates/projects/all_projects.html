@@ -19,12 +19,80 @@
                     <a href="{% url 'projects:detail_view' %}">View Project</a>
                 </div>
             </div>
-            <div class="spline-container">
-                <iframe src='https://my.spline.design/project-1d8a915b483c8ac0bbb9648720a0af14/' frameborder='0' width='100%' height='100%'></iframe>
-                <h1 class="app-label">Mobile App</h1>
+            <div class="projects-spline-container">
+                <div class="app-label-container">
+                    <h1 class="app-label">Mobile App</h1>
+                </div>
+
+                <div class="spline-container">
+                    <iframe src='https://my.spline.design/project-1d8a915b483c8ac0bbb9648720a0af14/' frameborder='0' width='100%' height='100%'></iframe>
+                </div>
+            </div>
+            
             </div>
         </div>
     </div>
 </section>
+
+<section class="projects-section-1">
+    <div class="projects-container-1">
+        <div class="projects-header-text-1">
+            <h1>01</h1>
+            <hr class="projects-line">
+        </div>
+        <div class="projects-content-1">
+            <div class="projects-text-1">
+                <h1>Solar Voyages</h1>
+                <p>App that helps users learn more about space and allows them to book their space journey</p>
+                <div class="view-project">
+                    <a href="{% url 'projects:detail_view' %}">View Project</a>
+                </div>
+            </div>
+            <div class="projects-spline-container">
+                <div class="app-label-container">
+                    <h1 class="app-label">Mobile App</h1>
+                </div>
+
+                <div class="spline-container">
+                    <iframe src='https://my.spline.design/project-1d8a915b483c8ac0bbb9648720a0af14/' frameborder='0' width='100%' height='100%'></iframe>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      ScrollReveal().reveal('.projects-header-text-1', { 
+        duration: 1200, 
+        origin: 'left', 
+        distance: '80px', 
+        easing: 'ease-in-out', 
+        opacity: 0
+      });
+  
+      ScrollReveal().reveal('.projects-text-1', { 
+        duration: 1200, 
+        origin: 'bottom', 
+        distance: '50px', 
+        delay: 200, 
+        easing: 'ease-in-out', 
+        opacity: 0 
+      });
+  
+      ScrollReveal().reveal('.spline-container', { 
+        duration: 1500, 
+        origin: 'right', 
+        distance: '80px', 
+        delay: 200, 
+        easing: 'ease-in-out', 
+        opacity: 0
+      });
+  
+    });
+  </script>
+  
 
 {% endblock %}
