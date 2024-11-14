@@ -22,7 +22,7 @@
     </div>
     <!-- Contact Form Section -->
     <div class="contact-form">
-        <form action="{% url 'main:contact_view'%}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'main:contact_view'%}" method="post" enctype="multipart/form-data" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
             {%csrf_token%}
             <div class="form-row">
                 <div class="form-group">
@@ -31,7 +31,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email address</label>
+                    <label for="email">Email</label>
                     <input type="email" id="" name="email" placeholder="email@gmail.com" required />
                 </div>
             </div>

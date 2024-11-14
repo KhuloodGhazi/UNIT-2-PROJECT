@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Plant(models.Model):
+class Project(models.Model):
     class CategoryChoices(models.TextChoices):
         MOBILE_APP = 'Mobile App', 'Mobile App'
         WEBSITE = 'Website', 'Website'

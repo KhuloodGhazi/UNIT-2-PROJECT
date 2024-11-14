@@ -12,9 +12,9 @@ def admin_view(request:HttpRequest):
 
 
 
-def messages_view(request):
+def messages_view(request:HttpRequest):
     
-    messages = Contact.objects.all()
+    messages = Contact.objects.all().order_by('-created_at')
 
     return render(request, 'dashboard/messages.html', {'messages': messages})
 
