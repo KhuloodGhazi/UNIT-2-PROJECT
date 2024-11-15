@@ -1,0 +1,29 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% load static %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<div class="search-article-page">
+    {% if plant %}
+    <div class="search-page-all">
+        <h1>Top Results ({{ plant.count }})</h1>
+        <h5>Results for: '{{ search_query }}'</h5>
+    {% else %}
+        <h3 class="not-found">No Results Found for '{{ search_query }}'</h3>
+    {% endif %}
+    </div>
+
+    <section class="plants-section">
+        {% for project in projects %}
+            <div class="plant-card">
+                <img src="{{ plant.image.url }}" alt="{{ plant.name }}">
+                <a href="{% url 'plants:plant_detail_view' plant.id %}"><h3>{{ plant.name }}</h3></a>
+                <p>{{ plant.about }}</p>
+                <p class="category">{{ plant.category }}</p>
+            </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}

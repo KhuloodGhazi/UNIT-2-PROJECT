@@ -2,12 +2,58 @@
 
 {% load static %}
 
-{% block title %}My Dashboard - Messages{% endblock %}
+{% block title %}My Dashboard {% endblock %}
 
 {% block content %}
 
+<div class="dashboard-content">
+    <div class="dashboard-header">
+        <h1>Welcome Back, Khulood</h1>
+        <a href="{% url 'dashboard:new_project_view'%}" class="create-btn">Create Project +</a>
+    </div>
+    <div class="header-border-2"></div>
 
 
+    <div class="toolbar">
+        <div class="toolbar-item" onclick="toggleIconColor(this)">
+            <i data-feather="search"></i>
+            <span>Search</span>
+        </div>
+        <div class="toolbar-item" onclick="toggleIconColor(this)">
+            <i data-feather="filter"></i>
+            <span>Filter</span>
+        </div>
+        <div class="toolbar-item" onclick="toggleSortMode(); toggleIconColor(this)">
+            <i data-feather="arrow-up"></i>
+            <span id="sortLabel">Sort by Name</span>
+        </div>
+    </div>
+
+    <div class="project-grid" id="projectGrid">
+        <div class="project-card">
+            <img src="{% static 'images/planteer.png' %}" alt="planteer-project" class="planteer">
+            <div class="overlay">
+                <h3>Planteer</h3>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="{{plant.image.url}}" alt="{{project.name}}">
+            <div class="overlay">
+                <a href="{% url 'dashboard:projrct_detail_admin_view'%}"><h3>{{ project.name }}</h3></a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="{% static 'scripts.js' %}"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+    feather.replace();
+</script>
 
 
 

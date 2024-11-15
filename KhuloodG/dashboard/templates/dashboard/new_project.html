@@ -14,7 +14,7 @@
     
     <div class="add-project-container">
         
-        <form class="add-project-form" action="{% url 'projects:new_project_view'%}" method="post" enctype="multipart/form-data">
+        <form class="add-project-form" action="{% url 'dashboard:new_project_view'%}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
                 <label for="project_name">Project Name</label>
@@ -30,6 +30,17 @@
                 <label for="project_model">Project URL</label>
                 <input type="text" id="project_model" name="project_model" placeholder="Enter You 3D Model URL" required>
             </div>
+
+
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" id="year" name="year" placeholder="Enter the Year of the Project (e.g., 2023)">
+            </div>
+
+            <div class="form-group">
+                <label for="read_more_link">Read More</label>
+                <input type="text" id="read_more_link" name="read_more_link" placeholder="Enter Link to the Case Study or Github of the Project ">
+            </div>
             
             <!-- Category -->
             <div class="form-group">
@@ -39,6 +50,17 @@
                     <option value="Website">Website</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="project_explanation">Project Explanation</label>
+                <textarea id="project_explanation" name="project_explanation" placeholder="Enter a Detailed Explanation of the Project" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Project Mockup</label>
+                <input type="file" id="image" name="image">
+            </div>
+            
 
             <button type="submit" class="submit-button">Add Project</button>
         </form>

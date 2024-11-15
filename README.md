@@ -34,26 +34,82 @@ A personal website is website that represents you , your work , your career , yo
 - Wireframe (shared as link or uploaded as a file) - You can use Figma or similar online wireframing/design software.
 - UML (shared as a link or uploaded as a file) - You can use Lucid Charts or similar online UML design tool.
 
-## (Project Name)
-(project description here.)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+## KhuloodG
+Project Description: My Portfolio Website. This platform is a reflection of my journey as a Full-Stack Developer and iOS Software Engineer. I’ve designed this website to showcase my projects dynamically while providing a seamless and interactive experience for visitors. It also doubles as a powerful tool for managing and exploring projects.
+
+
 
 ## Features List
-- (list of features)
+
+- Interactive Homepage:
+The homepage introduces me as a Full-Stack Developer and iOS Engineer, featuring sections about my skills and an interactive 3D design.
+
+- All Projects Showcase:
+A dedicated page lists all projects, each accompanied by a brief description and a 3D interactive model embedded via Spline​.
+Projects are numbered, categorized, and include links to detailed views for further exploration.
+
+- Project Details:
+Individual project pages provide comprehensive information about the project, including descriptions and additional interactive elements.
+
+-Contact Page:
+The Contact Me page allows visitors to get in touch directly. It features a clean and simple form where users can provide their name, email, and message​.
+A notification system displays success messages after form submission, ensuring smooth communication. 
+
+- Responsive and Engaging Design:
+The site is built to adapt across all devices, ensuring usability and a consistent experience.
+ScrollReveal animations add life to the projects as users navigate through the pages.
+
+- Personalized Dashboard:
+The dashboard welcomes admin with a friendly greeting and tools for managing projects.
+Features like Search, Filter, and Sort make organizing and locating projects intuitive.
+
+- Dynamic Project Management:
+Admin can add projects with details like name, brief description, category, and 3D model URL.
+
+- Messages Section:
+The dashboard includes a Messages section, where admin inquiries are displayed as structured cards, complete with names, emails, and messages​
+
+
+## Technology Stack:
+
+- Frontend:
+HTML, CSS, JavaScript (with ScrollReveal), and Feather Icons.
+
+- Backend:
+Django framework for dynamic content management and efficient routing.
+
+- 3D Interactivity:
+Spline embeds for interactive 3D models.
+
+- Styling:
+Bootstrap for responsive design.
+
 
 ## User Stories, Wireframes & UML links
-- (User stories document link here.)
-- (wireframe link here.)
-- (UML link here.)
+- User Storie:
+- Wireframe:
+- UMLs:
 
 
 ## Resources:
+- https://scrollrevealjs.org/
+- https://feathericons.com/
+- https://developer.apple.com/sf-symbols/
+- Spline
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 ### Free high quality images :
 - https://www.pexels.com/
 - https://unsplash.com
-
-
-
 
 ### Free sounds website:
 - https://mixkit.co/

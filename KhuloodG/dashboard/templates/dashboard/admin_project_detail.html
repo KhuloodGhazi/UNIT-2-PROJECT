@@ -1,7 +1,8 @@
-{% extends 'main/base.html' %}
+{% extends 'dashboard/dashboard_base.html' %}
+
 {% load static %}
 
-{% block title %}Project Details{% endblock %}
+{% block title %}My Dashboard {% endblock %}
 
 {% block content %}
 
@@ -17,6 +18,11 @@
                     App that help user learn more about space and allow them to book their space journey more more more more more more more more more more more more more more more more more more more more 
                 </p>
                 <a href="https://githubprojectPage.com" class="project-link">https://githubprojectPage.com</a>
+                
+                <div class="action-buttons">
+                    <button class="update-btn">Update Project</button>
+                    <button class="delete-btn">Delete Project</button>
+                </div>
             </div>
             <div class="projects-detail-pic-container">
                 <img src="{% static 'images/Backgorund.png' %}" alt="Background Image" class="background-image">
