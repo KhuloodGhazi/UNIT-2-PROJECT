@@ -3,6 +3,8 @@ from django.http import HttpRequest, HttpResponse
 from main.models import Contact
 from projects.models import Project
 from django.contrib import messages
+from django.db.models import Q
+
 
 
 
@@ -11,9 +13,29 @@ from django.contrib import messages
 
 def admin_view(request:HttpRequest):
 
-    project = Project.objects.all()
+    projects = Project.objects.all()
+    
+    search_query = request.GET.get('query', '')
+    if search_query:
+        projects = projects.filter(project_name__icontains=search_query)
 
-    return render(request, 'dashboard/admin_dashboard.html', {'project': project})
+    category_filter = request.GET.get('category', '')
+    if category_filter:
+        projects = projects.filter(category__iexact=category_filter)
+
+    sort = request.GET.get('sort', '')
+    if sort == 'name':
+        projects = projects.order_by('project_name')
+    elif sort == 'date':
+        projects = projects.order_by('-create_at')
+
+    return render(request, 'dashboard/admin_dashboard.html', {
+        'projects': projects,
+        'search_query': search_query,
+        'category_filter': category_filter,
+        'sort': sort,
+    })
+ 
 
 
 
@@ -61,8 +83,16 @@ def project_detail_admin_view(request:HttpRequest, project_id: int):
 
 
 def search_project(request:HttpRequest):
+    
+    search_query = request.GET.get('query', '')
+    projects = Project.objects.filter(Project(name__icontains=search_query) | Q(category__icontains=search_query))
 
-    return render(request, 'dashboard/search_project.html')
+    return render(request, 'dashboard/search_project.html', {
+        'projects': projects,
+        'search_query': search_query
+    })
+
+    #return render(request, 'dashboard/search_project.html')
 
 
 

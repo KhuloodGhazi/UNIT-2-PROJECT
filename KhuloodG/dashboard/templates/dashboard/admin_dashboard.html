@@ -13,33 +13,37 @@
     </div>
     <div class="header-border-2"></div>
 
-
-    <div class="toolbar">
-        <div class="toolbar-item" onclick="toggleIconColor(this)">
-            <i data-feather="search"></i>
-            <span>Search</span>
-        </div>
-        <div class="toolbar-item" onclick="toggleIconColor(this)">
-            <i data-feather="filter"></i>
-            <span>Filter</span>
-        </div>
-        <div class="toolbar-item" onclick="toggleSortMode(); toggleIconColor(this)">
-            <i data-feather="arrow-up"></i>
-            <span id="sortLabel">Sort by Name</span>
-        </div>
-    </div>
-
+    <form method="get" action="{% url 'dashboard:admin_view' %}" class="toolbar">
+        <input type="text" name="query" placeholder="Search by Name" class="search-input" value="{{ search_query }}">
+    
+        <select name="category" class="filter-select">
+            <option value="">All Categories</option>
+            <option value="Mobile App" {% if category_filter == "Mobile App" %}selected{% endif %}>Mobile App</option>
+            <option value="Website" {% if category_filter == "Website" %}selected{% endif %}>Website</option>
+        </select>
+    
+        <select name="sort" class="filter-select">
+            <option value="">Sort</option>
+            <option value="name" {% if sort == "name" %}selected{% endif %}>Sort by Name</option>
+            <option value="date" {% if sort == "date" %}selected{% endif %}>Sort by Date</option>
+        </select>
+    
+        <button type="submit" class="dropdown-toggle">Apply</button>
+    </form>
+    
+    
     <div class="project-grid" id="projectGrid">
-        {% for project in project %}
+        {% for project in projects %}
         <div class="project-card">
-            <img src="{{project.image.url}}" alt="{{project.name}}">
+            <img src="{{ project.image.url }}" alt="{{ project.name }}">
             <div class="overlay">
-                <a href="{% url 'dashboard:project_detail_admin_view' project.id %}">
-                    <h3>{{ project.name }}</h3></a>
+                <h3 class="project-name">{{ project.project_name }}</h3>
+                <a href="{% url 'dashboard:project_detail_admin_view' project.id %}" class="view-link">View Details</a>
             </div>
         </div>
         {% endfor %}
     </div>
+    
 
 </div>
 
@@ -49,6 +53,12 @@
 <script src="https://unpkg.com/feather-icons"></script>
 <script>
     feather.replace();
+
+    function toggleDropdown() {
+    const menu = document.getElementById("sortMenu");
+    menu.classList.toggle("show");
+}
+
 </script>
 
 

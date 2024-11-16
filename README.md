@@ -90,9 +90,9 @@ Bootstrap for responsive design.
 
 
 ## User Stories, Wireframes & UML links
-- User Storie:
-- Wireframe:
-- UMLs:
+- User Storie: https://www.figma.com/board/rL04bjqOQ1PwmAhenYWagr/UMLs-%26-User-Stories?node-id=0-1&t=I5efHZuPNocr4nQo-1
+- Wireframe: https://www.figma.com/design/ZDBdOMDZGWZIGqZCpndSg2/TUWAQ-Website-Design?node-id=14-2&t=8Us91Yh71qcirCKS-1
+- UMLs: https://www.figma.com/board/rL04bjqOQ1PwmAhenYWagr/UMLs-%26-User-Stories?node-id=0-1&t=I5efHZuPNocr4nQo-1
 
 
 ## Resources:
