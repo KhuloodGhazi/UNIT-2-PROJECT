@@ -6,6 +6,16 @@
 
 {% block content %}
 
+{% if messages %}
+  <div class="notification-container">
+    {% for message in messages %}
+      <div class="notification {{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 
 
 <div class="add-project-page">
@@ -16,34 +26,34 @@
         
         <form class="add-project-form" action="{% url 'dashboard:new_project_view'%}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="project_name">Project Name</label>
                 <input type="text" id="project_name" name="project_name" placeholder="Enter Project Name" required>
             </div>
             
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="project_brief">Project Brief</label>
-                <input type="text" id="project_brief" name="project_brief" placeholder="Enter a Brife about Your Project">
+                <input type="text" id="project_brief" name="project_brief" placeholder="Enter a Brief about Your Project" required>
             </div>
             
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="project_model">Project URL</label>
-                <input type="text" id="project_model" name="project_model" placeholder="Enter You 3D Model URL" required>
+                <input type="url" id="project_model" name="project_model" placeholder="Enter You 3D Model URL" required>
             </div>
 
 
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="year">Year</label>
-                <input type="text" id="year" name="year" placeholder="Enter the Year of the Project (e.g., 2023)">
+                <input type="number" id="year" name="year" placeholder="Enter the Year of the Project (e.g., 2023)" required>
             </div>
 
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="read_more_link">Read More</label>
-                <input type="text" id="read_more_link" name="read_more_link" placeholder="Enter Link to the Case Study or Github of the Project ">
+                <input type="url" id="read_more_link" name="read_more_link" placeholder="Enter Link to the Case Study or Github of the Project" required>
             </div>
             
             <!-- Category -->
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="category">Category</label>
                 <select id="category" name="category">
                     <option value="Mobile App">Mobile App</option>
@@ -51,20 +61,31 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="project_explanation">Project Explanation</label>
-                <textarea id="project_explanation" name="project_explanation" placeholder="Enter a Detailed Explanation of the Project" rows="4"></textarea>
+                <textarea id="project_explanation" name="project_explanation" placeholder="Enter a Detailed Explanation of the Project" rows="4" required></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="add-form-group">
                 <label for="image">Project Mockup</label>
-                <input type="file" id="image" name="image">
+                <input type="file" id="image" name="image" required>
             </div>
             
 
-            <button type="submit" class="submit-button">Add Project</button>
+            <button type="submit" class="add-submit-button">Add Project</button>
         </form>
     </div>
 </div>
+
+<script>
+    setTimeout(function() {
+      const notification = document.querySelector('.notification');
+      if (notification) {
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 500); 
+      }
+    }, 3000); 
+  </script>
+  
   
 {% endblock %}

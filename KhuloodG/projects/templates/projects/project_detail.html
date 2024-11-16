@@ -1,32 +1,40 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Project Details{% endblock %}
+{% block title %}{{ project.project_name }}{% endblock %}
 
 {% block content %}
 
 <div class="projects-detail-section">
     <div class="projects-detail-container">
         <div class="projects-detail-header">
-            <h1>Real Estate</h1>
-            <p>Year: 2023</p>
+            <h1>{{ project.project_name }}</h1>
+            <p>Year: {{ project.year }}</p>
         </div>
         <div class="projects-detail-content">
             <div class="projects-detail-text">
                 <p>
-                    App that help user learn more about space and allow them to book their space journey more more more more more more more more more more more more more more more more more more more more 
+                    {{ project.project_explanation }}
                 </p>
-                <a href="https://githubprojectPage.com" class="project-link">https://githubprojectPage.com</a>
+                <a href="{{ project.read_more_link }}" class="project-link">
+                    <span>Read More</span>
+                    <i data-feather="arrow-up-right"></i>
+                </a>
             </div>
             <div class="projects-detail-pic-container">
                 <img src="{% static 'images/Backgorund.png' %}" alt="Background Image" class="background-image">
 
                 <div class="mockups">
-                    <img src="{% static 'images/Solar Mockup.png' %}" alt="Mockup 1" class="small-mockup">
+                    <img src="{{ project.image.url }}" alt="Mockup 1" class="{{ project.project_name }}">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+    feather.replace();
+</script>
 
 {% endblock %}

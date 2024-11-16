@@ -1,0 +1,90 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% load static %}
+
+{% block title %}Upsate Project{%endblock%}
+
+{% block content %}
+
+{% if messages %}
+  <div class="notification-container">
+    {% for message in messages %}
+      <div class="notification {{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<div class="update-project-page">
+    <h1>Update Project</h1>
+    <hr class="header-line-5">
+    
+    <div class="update-project-container">
+        
+        <form class="update-project-form" action="{% url 'dashboard:update_project' project.id%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="update-form-group">
+                <label for="project_name">Project Name</label>
+                <input type="text" id="project_name" name="project_name" placeholder="Enter Project Name" value="{{project.project_name}}" >
+            </div>
+            
+            <div class="update-form-group">
+                <label for="project_brief">Project Brief</label>
+                <input type="text" id="project_brief" name="project_brief" placeholder="Enter a Brife about Your Project" value="{{project.project_brief}}">
+            </div>
+            
+            <div class="update-form-group">
+                <label for="project_model">Project URL</label>
+                <input type="text" id="project_model" name="project_model" placeholder="Enter You 3D Model URL" value="{{project.project_model}}">
+            </div>
+
+
+            <div class="update-form-group">
+                <label for="year">Year</label>
+                <input type="text" id="year" name="year" placeholder="Enter the Year of the Project (e.g., 2023)" value="{{project.year}}">
+            </div>
+
+            <div class="update-form-group">
+                <label for="read_more_link">Read More</label>
+                <input type="text" id="read_more_link" name="read_more_link" placeholder="Enter Link to the Case Study or Github of the Project" value="{{project.read_more_link}}">
+            </div>
+            
+            <!-- Category -->
+            <div class="update-form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option value="Mobile App" {% if project.category == "Mobile App"%} selected {%endif%}>Mobile App</option>
+                    <option value="Website" {% if project.category == "Website"%} selected {%endif%}>Website</option>
+                </select>
+            </div>
+
+            <div class="update-form-group">
+                <label for="project_explanation">Project Explanation</label>
+                <textarea id="project_explanation" name="project_explanation" placeholder="Enter a Detailed Explanation of the Project" rows="4">{{project.project_explanation}}</textarea>
+            </div>
+
+            <div class="update-form-group">
+                <label for="image">Project Mockup</label>
+                <div class="update-img">
+                    <img src="{{project.image.url}}" alt="update-img-2" class="update-img-2"><br>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+            </div>
+            
+            <button type="submit" class="update-submit-button">Update Project</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    setTimeout(function() {
+      const notification = document.querySelector('.notification');
+      if (notification) {
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 500); 
+      }
+    }, 3000); 
+  </script>
+  
+{% endblock %}
