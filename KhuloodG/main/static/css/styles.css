@@ -840,6 +840,14 @@ html, body {
   color: rgba(255, 255, 255, 0.6); 
 }
 
+.update-img-2 {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
 
 .update-submit-button {
   background-color: #00edff;
@@ -1116,6 +1124,7 @@ html, body {
 .project-card img {
   object-fit:cover;
   width: 100%;
+  z-index: 1;
 }
 
 
@@ -1129,14 +1138,30 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 
-.project-card h3 {
+.project-card a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; 
+  z-index: 3; 
   color: #00EDFF;
   font-size: 2rem;
   text-align: center;
-  align-items: center;
 }
+
+.project-card a h3 {
+  margin: 0;
+  pointer-events: none; 
+}
+
 
 /* Admin project detail */
 
@@ -1149,8 +1174,6 @@ html, body {
   background-color: #1c1c1c;
   padding: 40px;
   padding-top: 130px;
-  overflow: hidden;
-
 }
 
 .projects-detail-container {
@@ -1200,25 +1223,26 @@ html, body {
 }
 
 .projects-detail-text p {
-  font-size: 1.9rem;
-  line-height: 1.5;
+  font-size: 1.7rem;
+  line-height: 1.6;
   font-weight: lighter;
   margin-bottom: 50px;
   color: white;
   margin-left: 20px;
+  text-align: justify;
 
 }
 
 .project-link {
   display: inline-flex;
   align-items: center;
-  padding: 10px 40px;
+  padding: 10px 20px;
   background-color: #00EDFF;
   color: #000;
   text-decoration: none;
   margin-left: 20px;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 1rem;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
@@ -1268,42 +1292,64 @@ html, body {
 }
 
 .projects-detail-pic-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  max-width: 1200px;
-  max-height: 1200px;
-  bottom: 300px;
+  max-width: 600px;
+  bottom: 200px;
 }
 
 .background-image {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   height: 1200px;
   opacity: 0.2;
   position: absolute;
-  top: 0;
-  left: 300px;
+  top: -80px;
+  left: 80%;
   transform: translateX(-50%);
   z-index: 0;
 }
 
 .mockups {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-  top: 60px;
-  z-index: 2; 
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 5px;
+  object-fit: contain; 
+  z-index: 2;
+  position: relative; 
+  transform: translateX(120px); 
+
+
 }
 
 .small-mockup {
-  width: 500px;
-  height: auto;
+  max-width: 100%;
+  height: auto; 
   border-radius: 5px;
+  object-fit: contain; 
+}
+
+.mockups-2 {
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 5px;
+  object-fit: contain; 
   z-index: 2;
-  margin-top: 20px;
+  position: relative; 
+  transform: translateX(120px); 
+
+
+}
+
+.small-mockup-2 {
+  max-width: 100%;
+  height: auto; 
+  border-radius: 5px;
+  margin-top: 40px;
+  object-fit: contain; 
 }
 
 

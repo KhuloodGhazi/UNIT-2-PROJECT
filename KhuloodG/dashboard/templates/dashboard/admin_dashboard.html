@@ -30,11 +30,12 @@
     </div>
 
     <div class="project-grid" id="projectGrid">
-        {% for project in projects %}
+        {% for project in project %}
         <div class="project-card">
             <img src="{{project.image.url}}" alt="{{project.name}}">
             <div class="overlay">
-                <a href="{% url 'dashboard:projrct_detail_admin_view'%}"><h3>{{ project.name }}</h3></a>
+                <a href="{% url 'dashboard:project_detail_admin_view' project.id %}">
+                    <h3>{{ project.name }}</h3></a>
             </div>
         </div>
         {% endfor %}

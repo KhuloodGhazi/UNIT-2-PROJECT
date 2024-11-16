@@ -11,7 +11,9 @@ from django.contrib import messages
 
 def admin_view(request:HttpRequest):
 
-    return render(request, 'dashboard/admin_dashboard.html')
+    project = Project.objects.all()
+
+    return render(request, 'dashboard/admin_dashboard.html', {'project': project})
 
 
 

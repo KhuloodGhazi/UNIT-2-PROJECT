@@ -2,19 +2,10 @@
 
 {% load static %}
 
-{% block title %}Upsate Project{%endblock%}
+{% block title %}Update Project{%endblock%}
 
 {% block content %}
 
-{% if messages %}
-  <div class="notification-container">
-    {% for message in messages %}
-      <div class="notification {{ message.tags }}">
-        {{ message }}
-      </div>
-    {% endfor %}
-  </div>
-{% endif %}
 
 <div class="update-project-page">
     <h1>Update Project</h1>
@@ -76,15 +67,5 @@
         </form>
     </div>
 </div>
-
-<script>
-    setTimeout(function() {
-      const notification = document.querySelector('.notification');
-      if (notification) {
-        notification.style.opacity = '0';
-        setTimeout(() => notification.remove(), 500); 
-      }
-    }, 3000); 
-  </script>
   
 {% endblock %}
