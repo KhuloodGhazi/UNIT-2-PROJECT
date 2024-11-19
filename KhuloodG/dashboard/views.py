@@ -66,7 +66,7 @@ def new_project_view(request:HttpRequest):
         new_project.save()
         messages.success(request, "Project created successfully!")
 
-        return redirect("main:main_view")
+        return redirect("dashboard:admin_view")
 
     return render(request, 'dashboard/new_project.html')
 
@@ -114,7 +114,7 @@ def update_project(request:HttpRequest, project_id: int):
             project.image=request.FILES["image"]
 
         project.save()    
-        messages.success(request, "Project created successfully!")
+        messages.success(request, "Project Updated successfully!")
 
 
         return redirect("dashboard:project_detail_admin_view", project_id=project.id)

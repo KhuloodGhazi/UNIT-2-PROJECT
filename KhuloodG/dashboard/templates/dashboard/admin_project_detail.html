@@ -6,6 +6,9 @@
 
 {% block content %}
 
+<div class="notification-container" id="notification-container"></div>
+
+
 
 <div class="projects-detail-section">
     <div class="projects-detail-container">
@@ -42,6 +45,37 @@
 <script src="https://unpkg.com/feather-icons"></script>
 <script>
     feather.replace();
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector(".delete-btn");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); 
+
+            setTimeout(() => {
+                const container = document.getElementById("notification-container");
+                if (!container) {
+                    console.error("Notification container not found.");
+                    return;
+                }
+
+            const notification = document.createElement("div");
+            notification.className = "notification success";
+            notification.textContent = "Project Deleted successfully!";
+            container.appendChild(notification);
+
+            setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => notification.remove(), 500); 
+                }, 3000);
+            }, 1000); 
+
+            
+            setTimeout(() => {
+                window.location.href = deleteButton.href; 
+            }, 4000); 
+        });
+    });
 </script>
 
 {% endblock %}
