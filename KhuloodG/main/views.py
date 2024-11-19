@@ -45,5 +45,5 @@ def contact_view(request:HttpRequest):
   
         
         return redirect("main:contact_view")
-
-    return render(request, 'main/contact.html') 
+    
+    return render(request, 'main/contact.html')

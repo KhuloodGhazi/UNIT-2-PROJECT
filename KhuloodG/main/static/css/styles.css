@@ -197,6 +197,16 @@ body {
   margin-left: 650px;
 }
 
+.spline-embed .replacment-image {
+  display: none;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 .main-content {
   width: calc(100% - 100px);
   padding-left: 100px;
@@ -319,14 +329,29 @@ body {
   color: white;
 }
 
+.notification-container {
+  position: fixed;
+  top: 10px;
+  left: 40%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: auto;
+  max-width: 90%;
+}
+
 .notification {
   padding: 15px;
   border-radius: 5px;
   color: #ffffff;
-  background-color: #4caf50;
   font-size: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: opacity 0.5s ease;
+}
+
+.notification.success {
+  background-color: #4caf50;
 }
 
 .notification.error {
@@ -1419,7 +1444,14 @@ body {
     width: 80%;
     height: 40vh;
     margin: 0 auto;
+    display: none;
+  }
+
+  .spline-embed .replacment-image {
     display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
   }
 
   .project-grid {
@@ -1473,6 +1505,11 @@ body {
     font-size: 0.9rem;
     padding: 10px;
     width: 100%;
+  }
+
+  .notification-container {
+    top: 20px;
+    max-width: 80%;
   }
 
   .about-text-2 h1 {
@@ -1581,12 +1618,15 @@ body {
 
   /* Home */
   .home-text-1 {
-    position: relative;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin: 0 auto;
-    margin-top: 100px;
-    padding: 20px;
-    top: 20px;
+    z-index: 100;
+    color: #ffffff;
+    padding: 10px;
+    width: 100%;
   }
 
   .home-text-1 h1 {
@@ -1594,19 +1634,18 @@ body {
     line-height: 1.4;
     color: #ffffff;
     margin-bottom: 20px;
-    z-index: 100;
   }
 
   .home-text-1 h5 {
-    font-size: 0.5rem;
+    font-size: 0.9rem;
     color: #00edff;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   /* Adjusting the 3D element */
   .spline-embed {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: auto;
     margin: 20px auto 0;
     display: block;
     position: relative;
@@ -1617,11 +1656,22 @@ body {
   }
 
   .spline-embed iframe {
-    width: 450px;
-    height: 500px;
-    display: block;
+    width: 200px;
+    height: 200px;
+    display: none;
     margin: 0 auto;
     border: none;
+  }
+
+  .spline-embed .replacment-image {
+    display: block;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    left: 130px;
+    object-fit: cover;
+    z-index: 0;
   }
 
   .main-content {
@@ -1638,6 +1688,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     margin-top: 20px;
   }
 
@@ -1667,12 +1718,12 @@ body {
   }
 
   .about-text-2 h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
   .about-text-2 p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 1rem 0;
     text-align: center;
   }
@@ -1684,7 +1735,7 @@ body {
   }
 
   .about-text-2 li {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0.5rem 0;
   }
 
@@ -1702,7 +1753,7 @@ body {
 
   .avatar {
     width: 100px;
-    margin: 10px 0;
+    margin: 10px;
   }
 
   /* Contact Page */
@@ -1740,6 +1791,38 @@ body {
     font-size: 0.9rem;
     padding: 10px;
     width: 100%;
+  }
+
+  .notification-container {
+    top: 20px;
+    left: 600px; 
+    max-width: 95%; 
+  }
+
+  .notification {
+    padding: 15px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease;
+    text-align: center;
+  }
+
+  .notification.success {
+    background-color: #4caf50; 
+  }
+
+  .notification.error {
+    background-color: #f44336; 
+  }
+
+  .notification.info {
+    background-color: #2196f3; 
+  }
+
+  .notification.warning {
+    background-color: #ff9800; 
   }
 
   /* Messages Section */
@@ -1929,11 +2012,11 @@ body {
 
   .projects-content-1 {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 20px; 
+    gap: 20px;
   }
 
   .projects-spline-container {
@@ -1943,8 +2026,8 @@ body {
   }
 
   .spline-container iframe {
-    width: 90%; 
-    height: 150px; 
+    width: 90%;
+    height: 150px;
     margin: 0 auto;
     border: none;
   }
@@ -1971,10 +2054,10 @@ body {
     position: relative;
     text-align: center;
     margin: 10px auto;
-    font-size: 1.2rem; 
-    color: #00edff; 
+    font-size: 1.2rem;
+    color: #00edff;
     bottom: 500px;
-    z-index: 5; 
+    z-index: 5;
   }
 
   .view-project {
@@ -2000,7 +2083,7 @@ body {
 
   .project-grid {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 20px;
     width: 100%;
     margin: 0 auto;
